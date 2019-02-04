@@ -7,7 +7,7 @@ class Register extends CI_Controller {
     public function __construct(){
 
         parent::__construct();
-       $this->load->library('form_vadilation');
+       $this->load->library('form_validation');
       $this->load->library('encrypt');
       $this->load->library('register_model');
       
@@ -31,7 +31,12 @@ class Register extends CI_Controller {
                 'email' => $this->input->post('user_email'),
                 'password' => $encrypted_password,
                 'verification_key' => $verification_key
-            )
+            );
+            $id = $this->register_model->insert($data);
+            if($id > 0)
+            {
+
+            }
         }
         else{
             $this->index();
