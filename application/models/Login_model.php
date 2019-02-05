@@ -1,7 +1,7 @@
 <?php 
 class Login_model extends CI_Model
 {
-    funtion can_login($email, $password)
+    function can_login($email, $password)
     {
         $this->db->where('email', $email);
         $query = $this->db->get('codeigniter_register');

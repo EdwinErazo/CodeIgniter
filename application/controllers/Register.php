@@ -62,7 +62,7 @@ class Register extends CI_Controller {
                 );
                 $this->load->library('email', $config);
                 $this->email->set_newline("\r\n");
-                $this->emall->from('eduardo.ed37@gmail.com');
+                $this->email->from('eduardo.ed37@gmail.com');
                 $this->email->to($this->input->post('user_email'));
                 $this->email->subject($subject);
                 $this->email->message($message);

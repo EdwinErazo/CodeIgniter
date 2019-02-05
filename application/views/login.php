@@ -40,7 +40,7 @@
             <div class="form-group" >
                     <label for="">Enter Password </label>
                     <input type="password" name="user_password" class="form-control" value="<?php echo set_value('user_password'); ?>" />
-                    <span class="text-danger"><?php echo form_error('user_password); ?></span>
+                    <span class="text-danger"><?php echo form_error('user_password'); ?></span>
                 </div>
                 <div class="form-group" >
                     <input type="submit" name="login" value="Login" class="btn btn-info" />

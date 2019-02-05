@@ -22,9 +22,11 @@ class Login extends CI_Controller {
     function validation(){
 
         $this->form_validation->set_rules('user_email', 'email', 'required|valid_email',
-        array('required' => 'You must provide a %s.','valid_email' => 'You must provide a %s.')
+        array('required' => 'You must provide a %s.','valid_email' => 'You must provide a %s.') );
 
-        $this->form_validation->set_rules('user_password','Password', 'required');
+        $this->form_validation->set_rules('user_password','Password', 'required',
+        array('required' => 'You must provide a %s.'));
+  
         if($this->form_validation->run()){
 
             $result = $this->login_model->can_login($this->input->post('user_email'), $this->input->post('user_password'));
