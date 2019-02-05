@@ -19,7 +19,18 @@
         <div class="panel panel-default">
             <div class="panel-heading">register</div>
             <div class="panel-body" >
-                <form method="post" action="<?php echo base_url();?>register/validation">
+            <?php
+            if($this->session->flashdata('message')){
+            
+                echo '
+                <div class="alert alert-success">
+                '.$this->session->flashdata("message").'
+                </div>
+                ';
+            }
+            ?>
+            <?php echo validation_errors(); ?>
+                <form method="post" action="<?php echo base_url();?>index.php/register/validation">
                     <div class="form-group" >
                         <label for="">Enter your name</label>
                         <input type="text" name="user_name" class="form-control" value="<?php echo set_value('user_name'); ?>" />
