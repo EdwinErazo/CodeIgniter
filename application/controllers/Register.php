@@ -80,6 +80,19 @@ class Register extends CI_Controller {
             $this->index();
         }
         }
+   
+   function verify_email(){
+       if($this->url->segment(3)){
+           $verification_key = $this->uri->segment(3);
+           if($this->register_model->verify_email($verification_key)){
+            $data['message']= '<h1 align="center">Your Email has been successfully verified, now you can login from <a href="'.base_url().'login">here</a></h1>';   
+           }
+       }
+       else{
+           $data['message'] = '<h1 align="center">Invalid Link</h1>';
+       }
+       $this->load->view('email_verification', $data);
+   }     
 }
 
 ?>
